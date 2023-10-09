@@ -8,11 +8,11 @@ import {
 } from "@thirdweb-dev/react";
 import { useRouter } from "next/router";
 import { useEffect } from "react";
-import { getUser } from "../../auth.config";
-import { contractAddress } from "../../const/yourDetails";
-import { Header } from "../components/Header";
-import styles from "../styles/Home.module.css";
-import checkBalance from "../util/checkBalance";
+import { getUser } from "auth.config";
+import { contractAddress } from "const/yourDetails";
+import { Header } from "src/components/Header";
+import styles from "src/styles/Home.module.css";
+import checkBalance from "src/util/checkBalance";
 import { GetServerSidePropsContext } from "next";
 import sdk from 'src/util/initializeSdk';
 
