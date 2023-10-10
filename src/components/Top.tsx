@@ -12,17 +12,9 @@ import styles from "src/styles/Home.module.css";
 
 
 export const Top = () => {
-    const { isLoggedIn, isLoading } = useUser();
-    const router = useRouter();
     const { contract } = useContract(contractAddress);
     const { data: contractMetadata, isLoading: contractLoading } =
         useContractMetadata(contract);
-
-    useEffect(() => {
-        if (!isLoading && !isLoggedIn) {
-            router.push("/login");
-        }
-    }, [isLoading, isLoggedIn, router]);
 
     return (<div>
         <h2 className={styles.heading}>NFT Gated Content </h2>

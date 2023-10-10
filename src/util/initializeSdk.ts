@@ -14,6 +14,14 @@ if (!process.env.WALLET_ADDRESS || process.env.WALLET_ADDRESS === '') {
     console.log('Wallet Address not found.');
 }
 
+if (!process.env.NEXT_PUBLIC_TEMPLATE_CLIENT_ID || process.env.NEXT_PUBLIC_TEMPLATE_CLIENT_ID === '') {
+    console.log('Wallet Address not found.');
+}
+
+if (!process.env.TW_SECRET_KEY || process.env.TW_SECRET_KEY === '') {
+    console.log('Wallet Address not found.');
+}
+
 const wallet = new Wallet(process.env.THIRDWEB_AUTH_PRIVATE_KEY!, getDefaultProvider(process.env.ALCHEMY_API_URL))
 
 const sdk = new ThirdwebSDK(

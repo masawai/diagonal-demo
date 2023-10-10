@@ -4,6 +4,7 @@ import checkBalance from "./checkBalance";
 import sdk from './initializeSdk';
 
 export async function authCheck(context: GetServerSidePropsContext) {
+    console.log('authCheck is invoked')
     const user = await getUser(context.req);
     if (!user) {
         return {
@@ -14,16 +15,16 @@ export async function authCheck(context: GetServerSidePropsContext) {
         };
     }
 
-    const secretKey = process.env.TW_SECRET_KEY;
-    if (!secretKey) {
-        console.error("Missing env var: TW_SECRET_KEY");
-        throw new Error("Missing env var: TW_SECRET_KEY");
-    }
+    // const secretKey = process.env.TW_SECRET_KEY;
+    // if (!secretKey) {
+    //     console.error("Missing env var: TW_SECRET_KEY");
+    //     throw new Error("Missing env var: TW_SECRET_KEY");
+    // }
 
-    const PRIVATE_KEY = process.env.THIRDWEB_AUTH_PRIVATE_KEY;
-    if (!PRIVATE_KEY) {
-        throw new Error("You need to add an PRIVATE_KEY environment variable.");
-    }
+    // const PRIVATE_KEY = process.env.THIRDWEB_AUTH_PRIVATE_KEY;
+    // if (!PRIVATE_KEY) {
+    //     throw new Error("You need to add an PRIVATE_KEY environment variable.");
+    // }
 
     const hasNft = await checkBalance(sdk, user.address);
     if (!hasNft) {
@@ -36,6 +37,6 @@ export async function authCheck(context: GetServerSidePropsContext) {
     }
 
     return {
-        props: {},  // or return user info or other necessary data
+        props: {},
     };
 }
